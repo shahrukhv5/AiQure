@@ -59,6 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFFFFFF),
       body: Center(
         child: Lottie.asset(
           "assets/animation/Animation - 1740652614744.json",
