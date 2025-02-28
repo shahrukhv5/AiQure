@@ -1,4 +1,3 @@
-// import 'package:aiqure/SplashScreen/splash%20_screen.dart';
 import 'package:aiqure/views/SplashScreen/splash%20_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,6 +16,12 @@ class MyApp extends StatelessWidget {
       builder: (context,child){
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            pageTransitionsTheme: PageTransitionsTheme(builders: {
+              TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+              TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+            }),
+          ),
           home: SplashScreen(),
         );
       },

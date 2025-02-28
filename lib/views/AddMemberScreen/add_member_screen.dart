@@ -1,53 +1,4 @@
-// import 'package:flutter/material.dart';
-//
-// class AddMemberScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text("Add Member")),
-//       body: Padding(
-//         padding: EdgeInsets.all(16.0),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             TextField(
-//               decoration: InputDecoration(labelText: "Name"),
-//             ),
-//             TextField(
-//               decoration: InputDecoration(labelText: "Gender"),
-//             ),
-//             TextField(
-//               decoration: InputDecoration(labelText: "Age"),
-//               keyboardType: TextInputType.number,
-//             ),
-//             TextField(
-//               decoration: InputDecoration(labelText: "Address"),
-//             ),
-//             TextField(
-//               decoration: InputDecoration(labelText: "Contact Number"),
-//               keyboardType: TextInputType.phone,
-//             ),
-//             TextField(
-//               decoration: InputDecoration(labelText: "Email Address"),
-//               keyboardType: TextInputType.emailAddress,
-//             ),
-//             SizedBox(height: 20),
-//             ElevatedButton(
-//               onPressed: () {},
-//               child: Text("Add Member"),
-//             ),
-//             SizedBox(height: 20),
-//             ElevatedButton(
-//               onPressed: () {},
-//               child: Text("Bulk Import from Excel"),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
+import 'package:aiqure/views/MemberListScreen/member_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -57,16 +8,17 @@ class AddMemberScreen extends StatefulWidget {
 }
 
 class _AddMemberScreenState extends State<AddMemberScreen> {
-  String? selectedGender; // Store selected gender
+  String? selectedGender;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: const Color(0xFFEFF6FF),
         body: Center(
           child: Padding(
             padding: EdgeInsets.all(16.w),
-            child: SingleChildScrollView( // Allows scrolling on smaller screens
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -118,12 +70,13 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                       fillColor: Colors.white,
                     ),
                     value: selectedGender,
-                    items: ["Male", "Female", "Other"].map((gender) {
-                      return DropdownMenuItem(
-                        value: gender,
-                        child: Text(gender),
-                      );
-                    }).toList(),
+                    items:
+                        ["Male", "Female", "Other"].map((gender) {
+                          return DropdownMenuItem(
+                            value: gender,
+                            child: Text(gender),
+                          );
+                        }).toList(),
                     onChanged: (value) {
                       setState(() {
                         selectedGender = value;
@@ -146,7 +99,6 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                     keyboardType: TextInputType.number,
                   ),
                   SizedBox(height: 12.h),
-
                   // Address Field
                   TextField(
                     decoration: InputDecoration(
@@ -160,7 +112,6 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                     ),
                   ),
                   SizedBox(height: 12.h),
-
                   // Contact Number Field
                   TextField(
                     decoration: InputDecoration(
@@ -195,7 +146,14 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MemberListScreen(),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,
                         foregroundColor: Colors.white,
@@ -207,7 +165,10 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                       ),
                       child: Text(
                         "Add Member",
-                        style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -228,7 +189,10 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                       ),
                       child: Text(
                         "Bulk Import from Excel",
-                        style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
