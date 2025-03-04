@@ -7,10 +7,9 @@ class CreateOrgScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFEFF6FF),
         body: Center(
           child: Padding(
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsets.all(20.w),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -23,15 +22,14 @@ class CreateOrgScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 30.sp,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
                           ),
                         ),
                         TextSpan(
                           text: "Organization",
                           style: TextStyle(
-                            fontSize: 35.sp,
+                            fontSize: 30.sp,
                             fontWeight: FontWeight.bold,
-                            color: Colors.blue,
+                            color: Color(0xFF3661E2),
                           ),
                         ),
                       ],
@@ -42,59 +40,57 @@ class CreateOrgScreen extends StatelessWidget {
                   TextField(
                     decoration: InputDecoration(
                       labelText: "Organization Name",
-                      prefixIcon: Icon(Icons.business, color: Colors.blue),
+                      prefixIcon: Icon(Icons.business,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       filled: true,
-                      fillColor: Colors.white,
                     ),
                   ),
                   SizedBox(height: 12.h),
-      
-                  // Address Field
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: "Address",
-                      prefixIcon: Icon(Icons.location_on, color: Colors.blue),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                  SizedBox(height: 12.h),
-      
                   // Primary Contact Name
                   TextField(
                     decoration: InputDecoration(
                       labelText: "Primary Contact Name",
-                      prefixIcon: Icon(Icons.person, color: Colors.blue),
+                      prefixIcon: Icon(Icons.person,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       filled: true,
-                      fillColor: Colors.white,
                     ),
                   ),
                   SizedBox(height: 12.h),
-      
+
                   // Primary Contact Number
                   TextField(
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       labelText: "Primary Contact Number",
-                      prefixIcon: Icon(Icons.phone, color: Colors.blue),
+                      prefixIcon: Icon(Icons.phone,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       filled: true,
-                      fillColor: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 12.h),
+                  // Address Field
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: "Address",
+                      prefixIcon: Icon(Icons.location_on,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      filled: true,
                     ),
                   ),
                   SizedBox(height: 20.h),
-      
+
                   // Create Organization Button
                   SizedBox(
                     width: double.infinity, // Full-width button
@@ -102,12 +98,12 @@ class CreateOrgScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AddMemberScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => AddMemberScreen(),
+                          ),
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white,
                         padding: EdgeInsets.symmetric(vertical: 14.h),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r),
@@ -116,7 +112,10 @@ class CreateOrgScreen extends StatelessWidget {
                       ),
                       child: Text(
                         "Create",
-                        style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -129,3 +128,4 @@ class CreateOrgScreen extends StatelessWidget {
     );
   }
 }
+

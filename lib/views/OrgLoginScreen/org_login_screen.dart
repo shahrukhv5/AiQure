@@ -1,4 +1,5 @@
 import 'package:aiqure/views/CreateOrgScreen/create_org_screen.dart';
+import 'package:aiqure/views/MemberListScreen/member_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,7 +8,6 @@ class OrgLoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFEFF6FF),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -20,15 +20,14 @@ class OrgLoginScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
                       ),
                     ),
                     TextSpan(
                       text: "Login",
                       style: TextStyle(
-                        fontSize: 35.sp,
+                        fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue,
+                        color: Color(0xFF3661E2),
                       ),
                     ),
                   ],
@@ -36,7 +35,9 @@ class OrgLoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               Padding(
-                padding: EdgeInsets.all(16.w), // Responsive padding using ScreenUtil
+                padding: EdgeInsets.all(
+                  20.w,
+                ), // Responsive padding using ScreenUtil
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -45,64 +46,79 @@ class OrgLoginScreen extends StatelessWidget {
                     TextField(
                       decoration: InputDecoration(
                         labelText: "Email",
-                        prefixIcon: Icon(Icons.email, color: Colors.blue),
+                        prefixIcon: Icon(
+                          Icons.email,
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12.r),
                         ),
                         filled: true,
-                        fillColor: Colors.white,
                       ),
                       keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(height: 16.h),
-      
                     // Password Field
                     TextField(
                       decoration: InputDecoration(
                         labelText: "Password",
-                        prefixIcon: Icon(Icons.lock, color: Colors.blue),
+                        prefixIcon: Icon(
+                          Icons.lock,
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12.r),
                         ),
                         filled: true,
-                        fillColor: Colors.white,
                       ),
                       obscureText: true,
                     ),
                     SizedBox(height: 24.h),
-      
                     // Login Button
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => MemberListScreen(),)
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white,
                         padding: EdgeInsets.symmetric(vertical: 14.h),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r),
                         ),
                         elevation: 4,
                       ),
-                      child: Text("Login", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                     SizedBox(height: 16.h), // Space before TextButton
-      
                     // Create Organization Button
                     TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => CreateOrgScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => CreateOrgScreen(),
+                          ),
                         );
                       },
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.blue, // Text color
+                        foregroundColor: Color(0xFF3661E2), // Text color
                       ),
-                      child: Text("Create Organization", style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold)),
+                      child: Text(
+                        "Create Organization",
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../OrgLoginScreen/org_login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -11,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFEFF6FF),
+        // backgroundColor: const Color(0xFFEFF6FF),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -24,15 +23,15 @@ class WelcomeScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        // color: Colors.black,
                       ),
                     ),
                     TextSpan(
                       text: "AiQure",
                       style: TextStyle(
-                        fontSize: 35.sp,
+                        fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue,
+                        color: Color(0xFF3661E2),
                       ),
                     ),
                   ],
@@ -47,36 +46,49 @@ class WelcomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 30.h), // Spacing
               // Organization Login Button
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => OrgLoginScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.r),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OrgLoginScreen(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      // backgroundColor: Colors.blue,
+                      // foregroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20.w,
+                        vertical: 12.h,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                    ),
+                    child: const Text("Organization"),
                   ),
-                ),
-                child: const Text("Organization Login"),
-              ),
-              SizedBox(height: 15.h), // Spacing
-              // Member Login Button
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.r),
+                  // SizedBox(width: 15.w), // Spacing
+                  // Member Login Button
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      // backgroundColor: Colors.blue,
+                      // foregroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 30.w,
+                        vertical: 12.h,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                    ),
+                    child: const Text("Member"),
                   ),
-                ),
-                child: const Text("Member Login"),
+                ],
               ),
             ],
           ),
