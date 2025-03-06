@@ -1,36 +1,7 @@
-// import 'package:aiqure/HomeScreen/welcomeScreen.dart';
-// import 'package:animated_splash_screen/animated_splash_screen.dart';
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:lottie/lottie.dart';
-// import 'package:page_transition/page_transition.dart';
-//
-// class SplashScreen extends StatelessWidget {
-//   const SplashScreen({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return AnimatedSplashScreen(
-//       splash: Center(
-//         child: Lottie.asset("assets/animation/Animation - 1740652614744.json"),
-//       ),
-//       nextScreen: Home(),
-//       duration: 3000,
-//       splashIconSize: 300.sp,
-//       splashTransition: SplashTransition.fadeTransition,
-//       pageTransitionType: PageTransitionType.topToBottom,
-//       // animationDuration: Duration(seconds: 200),
-//     );
-//   }
-// }
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
-
-import '../WelcomeScreen/welcomeScreen.dart';
+import '../OrgLoginScreen/org_login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -50,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
           type: PageTransitionType.fade, // Change transition type here
           alignment: Alignment.center, // Scale transition starts from center
           duration: Duration(milliseconds: 1000), // Adjust duration if needed
-          child: WelcomeScreen(),
+          child: OrgLoginScreen(),
         ),
       );
     });
@@ -59,12 +30,40 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
       body: Center(
-        child: Lottie.asset(
-          "assets/animation/Animation - 1740652614744.json",
-          width: 200.w,
-          height: 200.h,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Welcome To ",
+                    style: TextStyle(
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.bold,
+                      // color: Colors.black,
+                    ),
+                  ),
+                  TextSpan(
+                    text: "AiQure",
+                    style: TextStyle(
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF3661E2),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20.h),
+            Image.asset(
+              'assets/doctor.png',
+              width: 350.w,
+              height: 350.h,
+              fit: BoxFit.contain,
+            ),
+          ],
         ),
       ),
     );

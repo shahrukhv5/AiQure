@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/Member/member.dart';
 
 class MemberProvider with ChangeNotifier {
-  List<Member> _members = [];
+  final List<Member> _members = [];
 
   List<Member> get members => _members;
 
